@@ -6,6 +6,7 @@ import (
 	"github.com/wejectchen/ginblog/api/v1"
 	"github.com/wejectchen/ginblog/middleware"
 	"github.com/wejectchen/ginblog/utils"
+	"strings"
 )
 
 func createMyRender() multitemplate.Renderer {
@@ -107,6 +108,17 @@ func InitRouter() {
 		router.GET("commentcount/:id", v1.GetCommentCount)
 	}
 
+	// 关键：添加兜底路由，处理前端所有路由路径
+	// 注意：必须放在所有API路由之后，避免覆盖API请求
+	r.NoRoute(func(c *gin.Context) {
+		path := c.Request.URL.Path
+		// 区分前台和后台路径，返回对应的index.html
+		if strings.HasPrefix(path, "/admin") {
+			c.HTML(200, "admin", nil) // 后台路径返回admin的index.html
+		} else {
+			c.HTML(200, "front", nil) // 前台路径返回front的index.html
+		}
+	})
 	_ = r.Run(utils.HttpPort)
 
 }

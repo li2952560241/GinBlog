@@ -21,6 +21,8 @@ var (
 	SecretKey  string
 	Bucket     string
 	QiniuSever string
+
+	LogFilePath string
 )
 
 // 初始化
@@ -32,6 +34,11 @@ func init() {
 	LoadServer(file)
 	LoadData(file)
 	LoadQiniu(file)
+	LoadLog(file)
+}
+
+func LoadLog(file *ini.File) {
+	LogFilePath = file.Section("log").Key("filePath").MustString("log/log")
 }
 
 func LoadServer(file *ini.File) {

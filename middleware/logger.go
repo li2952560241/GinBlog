@@ -6,6 +6,7 @@ import (
 	retalog "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/rifflock/lfshook"
 	"github.com/sirupsen/logrus"
+	"github.com/wejectchen/ginblog/utils"
 	"os"
 	"time"
 )
@@ -13,7 +14,7 @@ import (
 // Logger 日志中间件
 // todo 可考虑更换其他日志中间件
 func Logger() gin.HandlerFunc {
-	filePath := "log/log"
+	filePath := utils.LogFilePath
 	//linkName := "latest_log.log"
 
 	// 优化1：处理os.OpenFile的错误（如果日志文件打开失败，直接终止程序）

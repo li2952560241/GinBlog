@@ -41,7 +41,7 @@ func InitDb() {
 		os.Exit(1)
 	}
 
-	// 迁移数据表，在没有数据表结构变更时候，建议注释不执行
+	// 迁移数据表，在没有数据表结构变更时候，建议注释不执行 会根据当前的结构体改变mysql中的表结构
 	// 注意:初次运行后可注销此行
 	_ = db.AutoMigrate(&User{}, &Article{}, &Category{}, Profile{}, Comment{})
 

@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/wejectchen/ginblog/utils"
@@ -64,6 +65,7 @@ func JwtToken() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var code int
 		tokenHeader := c.Request.Header.Get("Authorization")
+		fmt.Println("请求中带的tokenHeader", tokenHeader)
 		if tokenHeader == "" {
 			code = errmsg.ERROR_TOKEN_EXIST
 			c.JSON(http.StatusOK, gin.H{

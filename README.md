@@ -2,57 +2,12 @@
 
 # Ginblog（项目已完成，欢迎使用)
 
-</div>
-
-<div align="center">
-
-[![star](https://gitee.com/wejectchan/ginblog/badge/star.svg?theme=white)](https://gitee.com/wejectchan/ginblog/stargazers)
-[![Go Report Card](https://goreportcard.com/badge/github.com/wejectchen/ginblog)](https://goreportcard.com/report/github.com/wejectchen/ginblog)
-<a href="https://github.com/wejectchen/Ginblog/blob/master/LICENSE">
-<img src="https://img.shields.io/github/license/wejectchen/Ginblog"></img></a>
-<a href="https://github.com/wejectchen/Ginblog">
-![](https://img.shields.io/github/stars/wejectchen/Ginblog?label=GitHub)</a>
-<a href="https://pkg.go.dev/github.com/wejectchen/ginblog#section-readme">
-![](https://img.shields.io/badge/Go-Package-blue)</a>
-
-</div>
-
 <div align="center">
 <img  src="https://gitee.com/wejectchan/ginblog/raw/master/upload/zhizuotu_1.jpg" width="550" height="350"/>
 </div>
-
-## 重要更新
-
-- 2022.8.17 新增上传七牛服务器区域配置，现在在 `config/config.ini` 下可以配置七牛对象存储的服务器区域，配置更方便。
-
-- 2022.4.28 取消后台页面新增文章中上传图片为“必填”的限制，避免在配置七牛云上传不成功时报错。
-
-- 2021.3.7 修改了文章阅读页面css样式。
-
-- 2021.3.2 修改静态资源托管路径，前端项目下直接打包，不用再移动到static目录下，更加方便。
-
-- 2021.2.12 为了交流方便，建立了一个QQ群：951736723，如果有问题，欢迎进群交流。
-
-- 2021.2.10 增加了展示页面的移动端适配
-
-  <img src="https://gitee.com/wejectchan/ginblog/raw/master/upload/mobile.png" width="250px" />
-
-  <img src="https://gitee.com/wejectchan/ginblog/raw/master/upload/mobile2.png"  width="250px" />
-
-
-- 2021.1.2 加入注册、登录、评论功能，后台管理加入评论审核功能
-
-- 2021.1.3 增加 登录、注册验证功能；增加评论数量显示；增加阅读数量显示
-  增加：文章页面评论数、阅读数
-
 ## 介绍
 
-gin+vue 全栈制作一个博客。
-
-这是一个分享全栈制作过程的项目，旨在为有兴趣接触 golang web 开发的朋友分享一些制作经验。
-
-你可以前往 [B 站(https://space.bilibili.com/402177130)](https://space.bilibili.com/402177130)
-观看全栈的制作过程，你也可以留言分享你的观点，非常乐意与你交流。
+gin+vue 全栈制作一个博客。跟着B 站([Golang全栈项目 （一）初始化项目+配置参数_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1AA411v7e6/?spm_id_from=333.1387.collection.video_card.click)) 这个课程敲的代码。
 
 ## 目录结构
 
@@ -90,7 +45,15 @@ gin+vue 全栈制作一个博客。
 
 1. 克隆项目
 
+   ```bash
+   git clone https://github.com/li2952560241/GinBlog.git 
+   #这个是我自己的地址
+   ```
+
+   
+
 ```shell
+#原UP的仓库地址
 git clone git@gitee.com:wejectchan/ginblog.git
 #or
 git clone https://github.com/wejectchen/Ginblog.git
@@ -127,7 +90,7 @@ DbPassWord = admin123 # 数据库用户密码
 DbName = ginblog # 数据库名
 
 [qiniu]
-# 七牛储存信息
+# 七牛储存信息 https://developer.qiniu.com/kodo/1238/go 获取参数的文档教程
 Zone = 1 # 1:华东;2:华北;3:华南,不填默认华北。境外服务器特殊使用环境自行配置
 AccessKey =
 SecretKey =
@@ -135,7 +98,7 @@ Bucket =
 QiniuSever =
 ```
 
-5. 在database中将sql文件导入数据库
+5. 在database中将sql文件导入数据库  
 
    推荐navicat或者其他sql管理工具导入
 

@@ -1,18 +1,9 @@
-/*
- Navicat Premium Data Transfer
 
- Source Server         : mariaDB
- Source Server Type    : MariaDB
- Source Server Version : 100508
- Source Host           : localhost:3306
- Source Schema         : ginblog
+-- 检查并创建数据库（若不存在）
+CREATE DATABASE IF NOT EXISTS ginblog CHARACTER SET utf8 COLLATE utf8_general_ci;
 
- Target Server Type    : MariaDB
- Target Server Version : 100508
- File Encoding         : 65001
-
- Date: 09/02/2021 17:06:05
-*/
+-- 切换到ginblog数据库
+USE ginblog;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;

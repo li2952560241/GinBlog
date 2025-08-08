@@ -104,18 +104,22 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-
+  // 1. 先处理标题
   if (to.meta.title) {
     document.title = to.meta.title
   }
-  next()
 
+  // 2. 先验证Token
   const userToken = window.sessionStorage.getItem('token')
-  if (to.path === '/login') return next()
-  if (!userToken) {
-    next('/login')
-  } else {
+  if (to.path === '/login') {
     next()
+  } else {
+    // 非登录页：有Token才放行
+    if (userToken) {
+      next()
+    } else {
+      next('/login')
+    }
   }
 })
 
